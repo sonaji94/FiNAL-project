@@ -1,9 +1,10 @@
 from django.urls import path
 from django.contrib.auth.views import LogoutView
-from .views import HomeView, LoginView, RegisterView, DashboardView, AdminDashboardView, CampaignDetailView, CreateCampaignView, CategoryDetailView, CategoryListView, ForgotPasswordRequestView, ForgotPasswordVerifyView, ForgotPasswordResetView, MyDonationsView, MyTicketsView, RaiseTicketView, AccountSettingsView, ResolveTicketView, ApproveCampaignView, RejectCampaignView
+from .views import HomeView, LoginView, RegisterView, AboutView, DashboardView, AdminDashboardView, CampaignDetailView, CreateCampaignView, CategoryDetailView, CategoryListView, ForgotPasswordRequestView, ForgotPasswordVerifyView, ForgotPasswordResetView, MyDonationsView, MyTicketsView, RaiseTicketView, AccountSettingsView, ResolveTicketView, ApproveCampaignView, RejectCampaignView
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
+    path('about/', AboutView.as_view(), name='about'),
     path('login/', LoginView.as_view(), name='login'),
     path('register/', RegisterView.as_view(), name='register'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),

@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us | All-in-One Donation Platform{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="py-5 bg-light position-relative overflow-hidden" style="min-height: 400px; display: flex; align-items: center; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+    <div class="hero-shape shape-1" style="background: rgba(var(--primary-rgb), 0.05); top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; position: absolute;"></div>
+    <div class="hero-shape shape-2" style="background: rgba(var(--secondary-rgb), 0.05); bottom: -100px; left: -100px; width: 300px; height: 300px; border-radius: 50%; position: absolute;"></div>
+    
+    <div class="container position-relative">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                    </ol>
+                </nav>
+                <h1 class="display-3 fw-bold mb-4">Our Mission: <span class="text-primary-custom">Empowering Change</span></h1>
+                <p class="lead text-muted-custom mb-0 fs-4">We believe every individual has the power to make a difference. Our platform is built to bridge the gap between people in need and those who want to help.</p>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block text-center">
+                <i class="fa-solid fa-hand-holding-heart display-1 text-primary-custom opacity-25"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Content Section -->
+<section class="py-5">
+    <div class="container my-5">
+        <div class="row g-5 align-items-center mb-5">
+            <div class="col-lg-6">
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1470&auto=format&fit=crop" class="img-fluid rounded-4 shadow-lg" alt="People helping">
+                    <div class="position-absolute bottom-0 start-0 p-4 bg-primary text-white rounded-4 m-4 d-none d-md-block shadow">
+                        <h4 class="fw-bold mb-0">10,000+</h4>
+                        <p class="small mb-0 opacity-75">Lives Touched</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 px-lg-5">
+                <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill mb-3 fw-bold">Who We Are</span>
+                <h2 class="fw-bold mb-4">A Global Community of Giving</h2>
+                <p class="text-muted-custom mb-4">
+                    The All-in-One Donation Platform was founded on the principle that transparency and trust are the foundation of effective fundraising. Whether it's medical expenses, disaster relief, or community projects, we provide the tools to tell your story and reach a global audience.
+                </p>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-start">
+                            <div class="bg-primary-subtle p-2 rounded-3 me-3">
+                                <i class="fa-solid fa-shield-heart text-primary"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Trust & Safety</h6>
+                                <p class="small text-muted-custom mb-0">Verified campaigns and secure global payments.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-start">
+                            <div class="bg-success-subtle p-2 rounded-3 me-3">
+                                <i class="fa-solid fa-leaf text-success"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">100% Impact</h6>
+                                <p class="small text-muted-custom mb-0">Funds reach the cause with minimal overhead.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 text-center mt-5 pt-5 border-top">
+            <div class="col-md-4">
+                <div class="p-4 glass-panel rounded-4 h-100 shadow-sm transition-hover">
+                    <i class="fa-solid fa-heart-circle-check fs-1 text-danger mb-3"></i>
+                    <h5 class="fw-bold">Passion</h5>
+                    <p class="text-muted-custom small">Driven by a deep passion for social good and helping others.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 glass-panel rounded-4 h-100 shadow-sm transition-hover">
+                    <i class="fa-solid fa-people-group fs-1 text-primary mb-3"></i>
+                    <h5 class="fw-bold">Community</h5>
+                    <p class="text-muted-custom small">Building a supportive global community where everyone belongs.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 glass-panel rounded-4 h-100 shadow-sm transition-hover">
+                    <i class="fa-solid fa-chart-line fs-1 text-success mb-3"></i>
+                    <h5 class="fw-bold">Innovation</h5>
+                    <p class="text-muted-custom small">Using technology to make giving easier and more transparent.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 mb-5">
+    <div class="container">
+        <div class="bg-dark rounded-5 p-5 text-center text-white position-relative overflow-hidden shadow-lg">
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: radial-gradient(circle at 50% 0%, rgba(var(--primary-rgb), 0.2), transparent 70%);"></div>
+            <div class="position-relative">
+                <i class="fa-solid fa-parachute-box display-3 mb-4 text-secondary opacity-75"></i>
+                <h2 class="display-5 fw-bold mb-4">Start your giving journey today</h2>
+                <p class="lead mb-5 opacity-75 px-md-5 mx-auto" style="max-width: 700px;">Join thousands of others who are making a real difference. Your contribution, no matter the size, has the power to change a life.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="{% url 'register' %}" class="btn btn-primary-custom btn-lg rounded-pill px-5">Join Us</a>
+                    <a href="{% url 'category_list' %}" class="btn btn-outline-light btn-lg rounded-pill px-5">Donate Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .transition-hover:hover {
+        transform: translateY(-10px);
+        transition: transform 0.3s ease;
+    }
+</style>
+{% endblock %}
