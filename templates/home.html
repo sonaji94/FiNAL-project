@@ -64,8 +64,107 @@
     </div>
 </section>
 
+<!-- Trending Campaigns Section -->
+<section class="py-5 bg-light">
+    <div class="container my-5">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <h5 class="text-secondary fw-bold text-uppercase mb-2"><i class="fa-solid fa-fire me-2"></i>Trending Campaigns</h5>
+                <h2 class="fw-bold fs-1">Urgent missions <span class="text-primary-custom">making an impact</span></h2>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+                <a href="{% url 'category_list' %}" class="btn btn-outline-primary rounded-pill px-4 py-2 fw-bold">View All Campaigns</a>
+            </div>
+        </div>
+        <div class="row g-4">
+            {% for campaign in trending_campaigns %}
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden card-hover transition-all">
+                    <div class="position-relative" style="height: 220px;">
+                        {% if campaign.image %}
+                        <img src="{{ campaign.image.url }}" class="card-img-top h-100 object-fit-cover" alt="{{ campaign.title }}">
+                        {% else %}
+                        <div class="h-100 bg-secondary-subtle d-flex align-items-center justify-content-center">
+                            <i class="fa-solid fa-image text-muted opacity-50 fs-1"></i>
+                        </div>
+                        {% endif %}
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-white text-dark shadow-sm rounded-pill px-3 py-2 fw-bold">
+                                <i class="fa-solid fa-tag text-primary-custom me-1"></i> {{ campaign.category.name }}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h5 class="card-title fw-bold mb-3 line-clamp-2">{{ campaign.title }}</h5>
+                        <p class="card-text text-muted-custom small mb-4 line-clamp-3">{{ campaign.description }}</p>
+                        
+                        <div class="mt-auto">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-bold text-dark">₹{{ campaign.raised_amount }}</span>
+                                <span class="text-muted-custom small">raised of ₹{{ campaign.goal_amount }}</span>
+                            </div>
+                            <div class="progress mb-4 rounded-pill" style="height: 8px;">
+                                <div class="progress-bar bg-primary-custom progress-bar-striped progress-bar-animated" 
+                                     role="progressbar" 
+                                     style="width: {{ campaign.progress_percentage }}%;" 
+                                     aria-valuenow="{{ campaign.progress_percentage }}" 
+                                     aria-valuemin="0" 
+                                     aria-valuemax="100"></div>
+                            </div>
+                            <a href="{% url 'campaign_detail' campaign.pk %}" class="btn btn-outline-dark w-100 rounded-pill fw-bold stretched-link">
+                                Learn More <i class="fa-solid fa-arrow-right ms-1 small"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-5">
+                <div class="text-muted-custom mb-3"><i class="fa-solid fa-magnifying-glass fs-2"></i></div>
+                <h5 class="text-muted-custom">No active campaigns at the moment. Be the first to start one!</h5>
+                <a href="{% url 'create_campaign' %}" class="btn btn-primary-custom rounded-pill mt-3 px-4">Start a Fundraiser</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Browse by Category Section -->
+<section class="py-5 bg-white border-top">
+    <div class="container my-5">
+        <div class="row text-center mb-5">
+            <div class="col-12">
+                <h5 class="text-secondary fw-bold text-uppercase mb-2">Explore Your Passion</h5>
+                <h2 class="fw-bold fs-1">Browse by <span class="text-primary-custom">popular categories</span></h2>
+            </div>
+        </div>
+        <div class="row g-4 mb-5">
+            {% for category in categories %}
+            <div class="col-6 col-md-3">
+                <div class="card h-100 border-0 shadow-sm rounded-4 card-hover overflow-hidden transition-all text-center p-4 bg-light">
+                    <div class="bg-white rounded-circle shadow-sm d-inline-flex justify-content-center align-items-center mb-3 mx-auto" style="width: 70px; height: 70px;">
+                        {% if category.icon %}
+                            <img src="{{ category.icon.url }}" alt="{{ category.name }}" style="width: 35px; height: 35px; object-fit: contain;">
+                        {% else %}
+                            <i class="fa-solid fa-folder-open fs-3 text-primary-custom"></i>
+                        {% endif %}
+                    </div>
+                    <h5 class="fw-bold mb-2">{{ category.name }}</h5>
+                    <a href="{% url 'category_detail' category.slug %}" class="stretched-link text-decoration-none text-muted-custom small">Browse active <i class="fa-solid fa-chevron-right ms-1 x-small"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <a href="{% url 'category_list' %}" class="btn btn-primary-custom btn-lg rounded-pill px-5 py-3 shadow">
+                Explore All 20+ Categories <i class="fa-solid fa-layer-group ms-2 opacity-75"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- About Us Section -->
-<section id="about" class="py-5 bg-white">
+<section id="about" class="py-5 bg-light border-top">
     <div class="container my-5">
         <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
